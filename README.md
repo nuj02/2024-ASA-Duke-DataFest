@@ -29,17 +29,17 @@ In preprocessing the dataset, I elected to only look into sections that were *no
 
 Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every $ith$ chapter and $jth$ section
 
-$Engaged_{ij} = \sum engaged$
+$$Engaged_{ij} = \sum engaged$$
 
-$Unengaged_{ij} = \sum idle\_brief + \sum idle\_long + \sum off\_page\_brief + \sum off\_page\_long$
+$$Unengaged_{ij} = \sum idle\_brief + \sum idle\_long + \sum off\_page\_brief + \sum off\_page\_long$$
 
-$Total\ Time_{ij} = Engaged_{ij} + Unengaged_{ij}$
+$$Total\ Time_{ij} = Engaged_{ij} + Unengaged_{ij}$$
 
 One shortcoming of looking at students' raw time data was that the data was largely right-skewed, perhaps due to some students leaving the textbook open in the background of their web browser. To rectify the skew, log transforms were used.
 
-$Engaged\ Log_{ij} = \log(1+Engaged_{ij})$
+$$Engaged\ Log_{ij} = \log(1+Engaged_{ij})$$
 
-$Total\ Log_{ij} = \log(Total_{ij})$
+$$Total\ Log_{ij} = \log(Total_{ij})$$
 | ![Raw Engaged](./Figures/feature-engineering/engaged_2.4.png)| ![Log1p of Engaged](./Figures/feature-engineering/engaged_log1p_2.4.png)
 | :-: | :-: |
 | **Figure 3**: Distribution of Engagement Time with Chapter 2, Section 4 | **Figure 4**: Distribution of Engagement Time with Chapter 2, Section 4 after log transform: log(1+x) |
@@ -52,7 +52,7 @@ To delve deeper into observations made in Fig. 4, we approximated the Kernel Den
 
 Section Engagement Ratio was calculated to see if there were particular sections where engagement was low.
 
-$Section\ Engagement\ Ratio_{ij} = \frac{Engaged_{ij}}{Total\ Time_{ij}}$
+$$Section\ Engagement\ Ratio_{ij} = \frac{Engaged_{ij}}{Total\ Time_{ij}}$$
 
 | ![textbook-section-engagement](./Figures/feature-engineering/section-engagement-ratio.png)|
 | :-: |
@@ -60,7 +60,7 @@ $Section\ Engagement\ Ratio_{ij} = \frac{Engaged_{ij}}{Total\ Time_{ij}}$
 
 On the other hand, Relative Section Engagement Ratio was calculated to see how different students allocated their time and emphasized different sections for their needs.
 
-$Relative\ Section\ Engagement\ Ratio = \frac{Engaged_{ij}}{Engaged_{i}}$
+$$Relative\ Section\ Engagement\ Ratio = \frac{Engaged_{ij}}{Engaged_{i}}$$
 
 | ![Performance](./Figures/feature-engineering/relative-page-engagement.png)|
 | :-: |
