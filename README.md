@@ -1,3 +1,8 @@
+<script type="text/javascript"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 # American Statistical Association DataFest (CourseKata)
 
 The dataset analyzed at the DataFest was by CourseKata, an organization that authored an online textbook for students to learn statistics and data science. There are 16 chapters in the textbook with exercises and an end of chapter assessment.
@@ -27,7 +32,7 @@ Through this, I was interested in seeing if successful students using the textbo
 ## Feature Engineering
 In preprocessing the dataset, I elected to only look into sections that were *not* end of chapter review (review_flag == false); to emphasize sections where students would dedicate their time to studying and learning the content.
 
-Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every $ith$ chapter and $jth$ section
+Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every \(ith\) chapter and \(jth\) section
 
 $$Engaged_{ij} = \sum engaged$$
 
