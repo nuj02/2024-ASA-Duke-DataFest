@@ -32,11 +32,11 @@ Through this, I was interested in seeing if successful students using the textbo
 ## Feature Engineering
 In preprocessing the dataset, I elected to only look into sections that were *not* end of chapter review (review_flag == false); to emphasize sections where students would dedicate their time to studying and learning the content.
 
-Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every \(ith\) chapter and \(jth\) section
+Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every $ith$ chapter and $jth$ section
 
 $$Engaged_{ij} = \sum engaged$$
 
-$$Unengaged_{ij} = \sum idle\_brief + \sum idle\_long + \sum off\_page\_brief + \sum off\_page\_long$$
+$$Unengaged_{ij} = \sum idle\_{brief} + \sum idle\_{long} + \sum off\_{page\_brief} + \sum off\_{page\_long}$$
 
 $$Total\ Time_{ij} = Engaged_{ij} + Unengaged_{ij}$$
 
@@ -45,13 +45,14 @@ One shortcoming of looking at students' raw time data was that the data was larg
 $$Engaged\ Log_{ij} = \log(1+Engaged_{ij})$$
 
 $$Total\ Log_{ij} = \log(Total_{ij})$$
-| ![Raw Engaged](./Figures/feature-engineering/engaged_2.4.png)| ![Log1p of Engaged](./Figures/feature-engineering/engaged_log1p_2.4.png)
+
+| ![Raw Engaged](./Figures/feature-engineering/engaged_2.4.png)| ![Log1p of Engaged](./Figures/feature-engineering/engaged_log1p_2.4.png) |
 | :-: | :-: |
 | **Figure 3**: Distribution of Engagement Time with Chapter 2, Section 4 | **Figure 4**: Distribution of Engagement Time with Chapter 2, Section 4 after log transform: log(1+x) |
 
 To delve deeper into observations made in Fig. 4, we approximated the Kernel Density Estimate for the log of chapter engagement times. We can generalize that the distribution of engagement times for students studying a chapter, pre-completion, has smaller tails and larger peaks (Fig. 5). On the other hand, there is more variance when students are engaging with the book post-completion of a chapter (Fig. 6). 
 
-| ![Incompleted-Engagement](Figures/post-completion/incompleted_engagement_log.png)| ![Completed Engagement](Figures/post-completion/completed_engagement_log.png)
+| ![Incompleted-Engagement](Figures/post-completion/incompleted_engagement_log.png)| ![Completed Engagement](Figures/post-completion/completed_engagement_log.png) |
 | :-: | :-: |
 | **Figure 5**: Distribution of log of students' engagement times when page is not yet completed | **Figure 6**: Distrubtion of log of students' engagement times when page is completed |
 
