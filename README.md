@@ -1,6 +1,3 @@
-<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 # American Statistical Association DataFest (CourseKata)
 
 The dataset analyzed at the DataFest was by CourseKata, an organization that authored an online textbook for students to learn statistics and data science. There are 16 chapters in the textbook with exercises and an end of chapter assessment.
