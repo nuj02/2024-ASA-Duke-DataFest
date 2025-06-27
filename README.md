@@ -5,7 +5,7 @@
 
 # American Statistical Association DataFest (CourseKata)
 
-The dataset analyzed at the DataFest was by CourseKata, an organization that authored an online textbook for students to learn statistics and data science. There are 16 chapters in the textbook with exercises and an end of chapter assessment.
+The dataset analyzed at the ASA DataFest was by CourseKata, an organization that authored an online textbook for students to learn statistics and data science. There are 16 chapters in the textbook with exercises and an end of chapter assessment.
 
 ![DataFrames](./Figures/tables.svg)
 
@@ -19,20 +19,20 @@ The chapter with the largest number of exercises is Chapter 4 which dives into i
 
 ## User Insights
 
-An observation we make about textbook users is that as they get deeper into the book, they perform worse on average. This drop in end of chapter scores may imply that the book becomes more difficult for students as they learn more content. Another possibility is that the nature of the learning material is cumulative and mastery of previous material is necessary to succeed (Fig. 3). To delve deeper into how much "engagement" time is spent on studying the textbook, we see that students tend to spend the same amount of time reviewing the content of a chapter after it is completed once. This can imply that students tend to have a hard cap on how much time they want to devote to reviewing a finished chapter, even if there are varying amounts of sections across chapters (Fig. 4).
+An observation that can be made is that there is a decrease in chapter test scores as users get deeper into the book. This drop in end of chapter scores may imply that the book becomes more difficult for students as they learn more content. Another possibility is that the nature of the learning material is cumulative and mastery of previous material is necessary to succeed (Fig. 3). 
+
+In deliving deeper into how much "engagement" time is spent on engaging with the textbook, we see that students tend to spend the same amount of time reviewing the content of a chapter after it is completed once. This can imply that students tend to have a hard cap on how much time they want to devote to reviewing a finished chapter, even if there are varying amounts of sections across chapters (Fig. 4).
 
 | ![Performance](./Figures/user-insights/performance.png)| ![Performance vs Attempts](./Figures/user-insights/chapter-engagement.png)
 | :-: | :-: |
 | **Figure 3**: Distribution of end of chapter scores for every chapter | **Figure 4**: Scatterplot of students' engagement time with textbook given if the page was completed before or not |
 
-
-
 Through this, I was interested in seeing if successful students using the textbook exhibited similar behaviors and how the allocation of study time on sections in a chapter would affect performance on the review pages at the end of the chapter. 
 
 ## Feature Engineering
-In preprocessing the dataset, I elected to only look into sections that were *not* end of chapter review (review_flag == false); to emphasize sections where students would dedicate their time to studying and learning the content.
+In preprocessing the dataset, I elected to only look into sections that were *not* end of chapter review (these sections were denoted with review_flag == false) to emphasize sections where students were studying or learning the content.
 
-Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every $ith$ chapter and $jth$ section
+Students were assumed to be engaged with the material when they initiated an action on their computer such as a click, mouse movement, scroll for  every 2 minutes. On the other hand, we assumed students to be unengaged with the textbook when they were idle or off page. Such metrics were calculated for every ith chapter and jth section
 
 $$Engaged_{ij} = \sum engaged$$
 
@@ -56,7 +56,7 @@ To delve deeper into observations made in Fig. 4, we approximated the Kernel Den
 | :-: | :-: |
 | **Figure 5**: Distribution of log of students' engagement times when page is not yet completed | **Figure 6**: Distrubtion of log of students' engagement times when page is completed |
 
-Section Engagement Ratio was calculated to see if there were particular sections where engagement was low.
+Section Engagement Ratio was calculated to see if there were particular sections where engagement was low. Fig. 7 shows that there are not statistically significant sections where students were particularily unengaged.
 
 $$Section\ Engagement\ Ratio_{ij} = \frac{Engaged_{ij}}{Total\ Time_{ij}}$$
 
@@ -74,7 +74,7 @@ $$Relative\ Section\ Engagement\ Ratio = \frac{Engaged_{ij}}{Engaged_{i}}$$
 
 ## PCA Dimension Reduction 
 
-Using the relative section engagement ratio for each section, I used PCA to conduct dimension reduction on each chapter to visualize relationship between section emphasis and student performance.
+Using the relative section engagement ratio for each section, I used PCA to conduct dimension reduction on each chapter to visualize relationship between section emphasis and student performance. `
 
 | ![Chapter 1](./Figures/chapter-figures/1.png) | ![Chapter 2](./Figures/chapter-figures/2.png) |
 |:-:|:-:|
